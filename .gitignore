@@ -4,3 +4,7 @@
 
 # Large ML models
 models/*.joblib
+
+# Large model files stored on Hugging Face
+notebooks/legal_clause_random_forest.joblib
+notebooks/legal_clause_tfidf.joblib
