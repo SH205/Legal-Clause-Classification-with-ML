@@ -1,7 +1,9 @@
 import streamlit as st
 import joblib
 import pandas as pd
+from huggingface_hub import hf_hub_download
 
+HF_REPO = "SH205/legal-clause-random-forest"
 
 # -----------------------------
 # Page configuration
@@ -20,8 +22,18 @@ st.set_page_config(
 
 @st.cache_resource
 def load_models():
-    rf_model = joblib.load("notebooks/legal_clause_random_forest.joblib")
-    tfidf = joblib.load("notebooks/legal_clause_tfidf.joblib")
+    rf_path = hf_hub_download(
+        repo_id=HF_REPO,
+        filename="legal_clause_random_forest.joblib"
+    )
+
+    tfidf_path = hf_hub_download(
+        repo_id=HF_REPO,
+        filename="legal_clause_tfidf.joblib"
+    )
+
+    rf_model = joblib.load(rf_path)
+    tfidf = joblib.load(tfidf_path)
 
     return rf_model, tfidf
 
@@ -210,7 +222,7 @@ def explain_prediction(text):
 # User interface
 # -----------------------------
 
-st.title("⚖️ Legal AI Document Intelligence")
+st.title("⚖️ Legal Clause Classification")
 
 st.write(
     "Classify legal clauses into one of 100 legal document categories "
