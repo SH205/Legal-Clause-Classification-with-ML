@@ -22,23 +22,20 @@ st.set_page_config(
 
 @st.cache_resource
 def load_models():
-    rf_path = hf_hub_download(
-        repo_id=HF_REPO,
-        filename="legal_clause_random_forest.joblib"
-    )
 
     tfidf_path = hf_hub_download(
         repo_id=HF_REPO,
         filename="legal_clause_tfidf.joblib"
     )
 
-    rf_model = joblib.load(rf_path)
     tfidf = joblib.load(tfidf_path)
 
-    return rf_model, tfidf
+    return None, tfidf
 
 
 rf_model, tfidf = load_models()
+
+st.success("TF-IDF loaded successfully")
 
 
 # -----------------------------
