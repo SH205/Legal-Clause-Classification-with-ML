@@ -10,7 +10,7 @@ HF_REPO = "SH205/legal-clause-random-forest"
 # -----------------------------
 
 st.set_page_config(
-    page_title="Legal AI Document Intelligence",
+    page_title="Legal Clause Classification",
     page_icon="⚖️",
     layout="wide"
 )
