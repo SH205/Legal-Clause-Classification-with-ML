@@ -21,23 +21,29 @@ st.set_page_config(
 # -----------------------------
 @st.cache_resource
 def load_models():
+    st.write("Loading models from Hugging Face...")
+
     rf_path = hf_hub_download(
         repo_id=HF_REPO,
         filename="legal_clause_random_forest.joblib"
     )
+
+    st.write("Random Forest downloaded.")
 
     tfidf_path = hf_hub_download(
         repo_id=HF_REPO,
         filename="legal_clause_tfidf.joblib"
     )
 
+    st.write("TF-IDF downloaded.")
+
     rf_model = joblib.load(rf_path)
+    st.write("Random Forest loaded.")
+
     tfidf = joblib.load(tfidf_path)
+    st.write("TF-IDF loaded.")
 
     return rf_model, tfidf
-
-
-rf_model, tfidf = load_models()
 
 # -----------------------------
 # Label names
