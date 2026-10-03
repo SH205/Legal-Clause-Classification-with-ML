@@ -44,6 +44,8 @@ def load_models():
     st.write("TF-IDF loaded.")
 
     return rf_model, tfidf
+    
+rf_model, tfidf = load_models()
 
 # -----------------------------
 # Label names
