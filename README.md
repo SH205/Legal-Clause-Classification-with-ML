@@ -2,8 +2,7 @@
 
 ## Quick Overview
 
-**Goal of the Project:** A machine learning project that classifies legal contract clauses into 100 categories using NLP and a Random Forest classifier.
-
+**Goal:** Classify legal contract clauses into 100 categories using NLP and machine learning(a Random Forest classifier.).
 
 **Live Demo:** [Streamlit App](https://legal-clause-classification-with-ml-tdnchyebdfk4y9jcx9xmct.streamlit.app)
 
@@ -28,7 +27,7 @@ After comparing the models, **TF-IDF + Random Forest** produced the strongest va
 
 ### Skills Used
 
-Natural Language Processing • Text Classification • Feature Engineering • TF-IDF • Imbalanced Classification • Machine Learning • Random Forest • Model Evaluation • Error Analysis • Classification Metrics • Model Explainability • Model Optimization • Model Deployment • Streamlit
+Natural Language Processing • Text Classification • TF-IDF • Feature Engineering • Imbalanced Classification • Machine Learning • Random Forest • Model Evaluation • Error Analysis • Classification Metrics • Model Explainability • Model Optimization • Model Deployment • Streamlit
 
 
 ### Technologies
@@ -73,9 +72,6 @@ Saved Production Model
         ↓
 Streamlit Application
 ```
-
-The main TF-IDF representation uses unigrams and bigrams and produces **210,328 features**.
-
 ---
 
 ## Model Evaluation
