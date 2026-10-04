@@ -21,45 +21,26 @@ st.set_page_config(
 # -----------------------------
 @st.cache_resource
 def load_models():
-    st.write("1. Starting model loading...")
-
-    st.write("2. Downloading Random Forest...")
-
-    rf_path = hf_hub_download(
-        repo_id=HF_REPO,
-        filename="legal_clause_random_forest.joblib"
+    rf_path = os.path.join(
+        os.path.dirname(__file__),
+        "notebooks",
+        "legal_clause_random_forest.joblib"
     )
 
-    st.write("3. Random Forest downloaded.")
-
-    st.write("4. Loading Random Forest into memory...")
+    tfidf_path = os.path.join(
+        os.path.dirname(__file__),
+        "notebooks",
+        "legal_clause_tfidf.joblib"
+    )
 
     rf_model = joblib.load(rf_path)
-
-    st.write("5. ✅ Random Forest loaded.")
-
-    st.write("6. Downloading TF-IDF...")
-
-    tfidf_path = hf_hub_download(
-        repo_id=HF_REPO,
-        filename="legal_clause_tfidf.joblib"
-    )
-
-    st.write("7. TF-IDF downloaded.")
-
-    st.write("8. Loading TF-IDF...")
-
     tfidf = joblib.load(tfidf_path)
-
-    st.write("9. ✅ TF-IDF loaded.")
 
     return rf_model, tfidf
 
 
 rf_model, tfidf = load_models()
 
-st.write("10. ✅ Both models loaded.")
-st.write("11. ✅ Starting Streamlit interface...")
 
 # -----------------------------
 # Label names
