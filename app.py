@@ -249,9 +249,7 @@ if st.button("🔍 Classify Legal Clause", type="primary"):
         st.warning("Please enter a legal clause.")
 
     else:
-        st.write("✅ About to run prediction...")
         results = predict_clause(text)
-        st.write("✅ Prediction completed.")
 
         predicted_label = results.iloc[0]["Clause"]
         confidence = results.iloc[0]["Probability"]
