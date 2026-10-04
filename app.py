@@ -19,14 +19,17 @@ st.set_page_config(
 # -----------------------------
 @st.cache_resource
 def load_models():
+    base_dir = os.path.dirname(__file__)
 
     rf_path = os.path.join(
-        os.path.dirname(__file__),
+        base_dir,
+        "notebooks",
         "legal_clause_random_forest.joblib"
     )
 
     tfidf_path = os.path.join(
-        os.path.dirname(__file__),
+        base_dir,
+        "notebooks",
         "legal_clause_tfidf.joblib"
     )
 
