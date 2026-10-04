@@ -1,9 +1,7 @@
 import streamlit as st
 import joblib
 import pandas as pd
-from huggingface_hub import hf_hub_download
-
-HF_REPO = "SH205/legal-clause-random-forest"
+import os
 
 # -----------------------------
 # Page configuration
@@ -21,15 +19,14 @@ st.set_page_config(
 # -----------------------------
 @st.cache_resource
 def load_models():
+
     rf_path = os.path.join(
         os.path.dirname(__file__),
-        "notebooks",
         "legal_clause_random_forest.joblib"
     )
 
     tfidf_path = os.path.join(
         os.path.dirname(__file__),
-        "notebooks",
         "legal_clause_tfidf.joblib"
     )
 
